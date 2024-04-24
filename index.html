@@ -7,7 +7,11 @@
     <script src="script.js"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link rel="shortcut icon" href="./img/parking-location-svgrepo-com.svg" type="image/x-icon">
+    <link
+      rel="shortcut icon"
+      href="./img/parking-location-svgrepo-com.svg"
+      type="image/x-icon"
+    />
     <link
       href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700;900&display=swap"
       rel="stylesheet"
@@ -27,11 +31,35 @@
     </nav>
   </header>
   <body>
-
+    <section id="cadastro">
+        <h1>Reserva de Vagas</h1>
+        <div class="cadastro-vagas">
+        <form id="form-cadastro">
+          <label for="placa">Placa</label>
+          <input type="text" id="placa" />
+          <label for="nome">Nome do proprietário</label>
+          <input type="text" id="nome" />
+          <label for="apartamento">Número do apartamento</label>
+          <input type="text" id="apartamento" />
+          <label for="bloco">Bloco</label>
+          <input type="text" id="bloco" />
+          <label for="modelo">Modelo</label>
+          <input type="text" id="modelo" />
+          <label for="cor">Cor</label>
+          <input type="text" id="cor" />
+          <label for="vaga">Número da vaga</label>
+          <input type="text" id="vaga" />
+          <button type="button">Reservar</button>
+        </form>
+        <div class="img-form">
+            <img src="./img/img_reserva.png" alt="Parking control" />
+        </div>
+    </div>
+    </section>
   </body>
   <footer>
     <div>
-        <p>Todos os direitos reservados, Parking Control!</p>
+      <p>Todos os direitos reservados, Parking Control!</p>
     </div>
   </footer>
 </html>
