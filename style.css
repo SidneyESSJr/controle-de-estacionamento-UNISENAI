@@ -8,7 +8,7 @@
 }
 
 :root {
-  --container-width: 1024px;
+  --container-width: 1440px;
   --cor-primaria: #1b325f;
   --cor-secundaria: #3a89c9;
   --cor-terciaria: #e9f2f9;
@@ -54,10 +54,11 @@ nav {
 }
 
 #cadastro {
+  /* display: none; */
   width: var(--container-width);
   margin: auto;
   background-color: var(--cor-terciaria);
-  padding: 3rem 8rem;
+  padding: 7rem 8rem;
 }
 
 #cadastro h1 {
@@ -67,6 +68,7 @@ nav {
 
 .cadastro-vagas {
   display: flex;
+
   flex-direction: row;
   column-gap: 5rem;
 }
@@ -77,6 +79,7 @@ nav {
   flex-direction: column;
   row-gap: var(--gap-s);
 }
+
 #form-cadastro label {
   color: var(--cor-secundaria);
 }
@@ -93,6 +96,7 @@ nav {
 #form-cadastro select {
   height: 35px;
   border-radius: var(--gap-xs);
+  width: 70%;
   border: none;
   box-shadow: 2px 3px 5px rgba(0, 0, 0, 0.2);
   outline-color: var(--cor-secundaria);
@@ -109,6 +113,7 @@ nav {
   font-size: var(--gap-m);
   background-color: var(--cor-primaria);
   transition: background-color 0.2s linear;
+  cursor: pointer;
 }
 
 #form-cadastro button:hover {
@@ -124,6 +129,69 @@ nav {
   border-radius: var(--gap-xs);
   background-color: var(--cor-primaria);
   width: 100%;
+}
+
+#cadastradas {
+  /* display: none; */
+  width: var(--container-width);
+  margin: auto;
+  background-color: var(--cor-terciaria);
+  padding: 7rem 8rem;
+}
+
+#cadastradas h1 {
+  padding-bottom: var(--gap-l);
+  color: var(--cor-secundaria);
+  text-align: center;
+}
+
+.tabela-vagas {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  column-gap: var(--gap-l);
+}
+
+.vagas-cadastradas {
+  border: 1px solid black;
+  background-color: var(--cor-primaria);
+  padding: var(--gap-m);
+}
+
+.vagas-cadastradas th {
+  background-color: white;
+  border: 1px solid black;
+  padding: var(--gap-m);
+}
+
+.legenda p {
+  color: var(--cor-secundaria);
+}
+
+.legenda span {
+  display: flex;
+  width: 20px;
+  height: 20px;
+}
+
+.reservada {
+  display: flex;
+  gap: var(--gap-s);
+  padding: var(--gap-xs);
+}
+
+.reservada span {
+  background-color: var(--cor-secundaria);
+}
+
+.disponivel {
+  display: flex;
+  gap: var(--gap-s);
+  padding: var(--gap-xs);
+}
+
+.disponivel span {
+  background-color: white;
 }
 
 footer {
