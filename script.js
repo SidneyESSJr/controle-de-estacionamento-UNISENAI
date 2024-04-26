@@ -32,6 +32,7 @@ const linkVagas = document.querySelector("a[id='link-lista-de-vagas']");
 
 const nome = document.getElementById("nome");
 const apartamento = document.querySelector("select[name='apartamento']");
+const modal = document.querySelector("aside[class='modal']");
 const bloco = document.querySelector("select[name='bloco']");
 const vaga = document.querySelector("select[name='vaga']");
 const modelo = document.getElementById("modelo");
@@ -75,6 +76,10 @@ function criarVagas() {
     ul.appendChild(li);
     cadastros.forEach((cadastro) => {
       if (Number(cadastro.vaga) === index) {
+        const pFechar = document.createElement("p");
+        pFechar.innerHTML = "x";
+        pFechar.className = "fechar";
+        li.appendChild(pFechar);
         const pApartamento = document.createElement("p");
         pApartamento.innerHTML = "Apartamento: " + cadastro.apartamento;
         const pBloco = document.createElement("p");
@@ -87,7 +92,7 @@ function criarVagas() {
   }
 }
 
-function armazenar() {
+function armazenar(cadastros) {
   window.localStorage.setItem("cadastros", JSON.stringify(cadastros));
 }
 
@@ -158,6 +163,29 @@ function validarEntradas() {
   return erros;
 }
 
+function removerCadastro() {
+  const fechar = document.querySelectorAll(".fechar");
+  fechar.forEach((el) => {
+    el.addEventListener("click", (event) => {
+      console.log("aqui");
+      const elSelecionado = event.target;
+      const ulList = elSelecionado.parentNode;
+      ulList.removeChild(ulList.childNodes[1]);
+      ulList.removeChild(ulList.childNodes[1]);
+      ulList.removeChild(ulList.childNodes[1]);
+      ulList.style = "backgrou-color: white";
+      const cadastrosFiltrados = cadastros.filter(
+        (cadastro) => cadastro.vaga !== ulList.id
+      );
+      armazenar(cadastrosFiltrados);
+      window.alert("Cadastro removido");
+      setInterval(() => {
+        location.reload();
+      }, 500);
+    });
+  });
+}
+
 function popularFormulario() {
   formData.set("nome", nome.value);
   formData.set("apartamento", apartamento.value);
@@ -172,14 +200,14 @@ popularApartamento();
 popularBloco();
 popularVagas();
 criarVagas();
+removerCadastro();
 
-botao.addEventListener("click", (event) => {
-  event.preventDefault();
+formulario.addEventListener("submit", (event) => {
   if (validarEntradas()) {
     popularFormulario();
     cadastros.push(Object.fromEntries(formData.entries()));
-    armazenar();
-    formulario.reset();
+    armazenar(cadastros);
+    window.alert("Cadastro realizado com sucesso!");
   }
 });
 
