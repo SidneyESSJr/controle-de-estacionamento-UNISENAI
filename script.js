@@ -207,6 +207,7 @@ formulario.addEventListener("submit", (event) => {
     popularFormulario();
     cadastros.push(Object.fromEntries(formData.entries()));
     armazenar(cadastros);
+    formulario.reset();
     window.alert("Cadastro realizado com sucesso!");
   }
 });

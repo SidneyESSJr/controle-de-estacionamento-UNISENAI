@@ -16,6 +16,7 @@
   --gap-s: 0.5rem;
   --gap-m: 1rem;
   --gap-l: 1.5rem;
+  --container-padding: 4rem 7rem 8rem 7rem;
   --font-family: "Roboto", sans-serif;
 }
 
@@ -57,7 +58,7 @@ nav {
   width: var(--container-width);
   margin: auto;
   background-color: var(--cor-terciaria);
-  padding: 7rem 8rem;
+  padding: var(--container-padding);
 }
 
 #cadastro h1 {
@@ -72,7 +73,6 @@ nav {
 
 .cadastro-vagas {
   display: flex;
-
   flex-direction: row;
   column-gap: 5rem;
 }
@@ -140,7 +140,7 @@ nav {
   width: var(--container-width);
   margin: auto;
   background-color: var(--cor-terciaria);
-  padding: 7rem 8rem;
+  padding: var(--container-padding);
 }
 
 #cadastradas h1 {
@@ -156,8 +156,9 @@ nav {
 .vagas {
   display: flex;
   flex-wrap: wrap;
+  /* justify-content: center; */
   gap: var(--gap-s);
-  width: 80%;
+  width: 90%;
 }
 
 .vagas li {
@@ -239,4 +240,86 @@ footer div {
   width: var(--container-width);
   padding-block: 40px;
   color: var(--cor-terciaria);
+}
+
+@media screen and (max-width: 1440px) {
+  :root {
+    --container-width: 1024px;
+    --container-padding: 4rem 4rem 8rem 4rem;
+  }
+}
+
+@media screen and (max-width: 1024px) {
+  :root {
+    --container-width: 768px;
+  }
+
+  .cadastro-vagas {
+    column-gap: 3rem;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  :root {
+    --container-width: 425px;
+    --container-padding: 4rem 0.7rem 8rem 0.7rem;
+  }
+
+  .menu ul {
+    column-gap: var(--gap-xs);
+  }
+
+  .menu ul a {
+    font-size: 1rem;
+  }
+
+  .legenda {
+    padding-inline: 2rem;
+  }
+
+  .cadastro-vagas {
+    flex-direction: column-reverse;
+    row-gap: var(--gap-l);
+  }
+
+  .img-form {
+    width: auto;
+  }
+  #form-cadastro {
+    width: auto;
+  }
+
+  .lista-vagas {
+    flex-direction: column-reverse;
+    row-gap: var(--gap-l);
+  }
+
+  .vagas {
+    justify-content: center;
+    width: auto;
+  }
+}
+
+@media screen and (max-width: 425px) {
+  :root {
+    --container-width: 320px;
+  }
+
+  .menu ul a {
+    padding: 0.7rem
+  }
+
+  .vagas li {
+    width: 140px;
+    justify-content: space-between;
+    padding: var(--gap-m);
+  }
+
+  .vagas li p {
+    font-size: 13px;
+  }
+
+  .legenda {
+    padding-inline: 0.4rem;
+  }
 }
