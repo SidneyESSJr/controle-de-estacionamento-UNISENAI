@@ -179,9 +179,7 @@ function removerCadastro() {
       );
       armazenar(cadastrosFiltrados);
       window.alert("Cadastro removido");
-      setInterval(() => {
-        location.reload();
-      }, 500);
+      location.reload();
     });
   });
 }
@@ -203,12 +201,14 @@ criarVagas();
 removerCadastro();
 
 formulario.addEventListener("submit", (event) => {
+  event.preventDefault();
   if (validarEntradas()) {
     popularFormulario();
     cadastros.push(Object.fromEntries(formData.entries()));
     armazenar(cadastros);
     formulario.reset();
     window.alert("Cadastro realizado com sucesso!");
+    location.reload();
   }
 });
 
